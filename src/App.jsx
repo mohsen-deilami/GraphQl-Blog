@@ -1,4 +1,3 @@
-
 import "./App.css";
 import { gql, useQuery } from "@apollo/client";
 import Home from "./component/home/Home";
@@ -11,16 +10,12 @@ const QUERY = gql`
   }
 `;
 function App() {
-  
   return (
     <>
-<Layout>
-
-<Home/>
-</Layout>
+      <Layout>
+        <Home />
+      </Layout>
     </>
-      
-
   );
 }
 
