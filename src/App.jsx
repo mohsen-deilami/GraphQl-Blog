@@ -1,8 +1,8 @@
 
 import "./App.css";
 import { gql, useQuery } from "@apollo/client";
-import Header from "./component/header/Header";
 import Home from "./component/home/Home";
+import Layout from "./component/layout/Layout";
 const QUERY = gql`
   query {
     Author {
@@ -14,8 +14,10 @@ function App() {
   
   return (
     <>
-<Header/>
+<Layout>
+
 <Home/>
+</Layout>
     </>
       
 

@@ -6,7 +6,7 @@ import BookIcon from '@mui/icons-material/Book';
 export default function Header() {
   return (
     <div>
-        <Container maxWidth="lg">
+       
        <AppBar position="sticky">
         <Toolbar>
         
@@ -17,7 +17,7 @@ export default function Header() {
         </Toolbar>
       </AppBar>
             
-        </Container>
+       
     </div>
   )
 }
