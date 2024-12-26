@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function AutuorsPage() {
+export default function AuthorsPage() {
   return (
     <div>
       author page
