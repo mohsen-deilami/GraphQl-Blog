@@ -11,7 +11,6 @@ import Divider from '@mui/material/Divider';
 
 
 export default function CardEL(props) {
-  console.log(props);
   
   return (
     <div>
@@ -34,8 +33,8 @@ export default function CardEL(props) {
         alt={`${props.slug}`}
       />
       <CardContent>
-        <Typography component="h3" variant="body2" sx={{ color: 'text.secondary' }}>
-         {props.title.slice(0,20)}
+        <Typography component="h3" variant="body2" sx={{ color: 'text.secondary' ,overflow:'hidden',whiteSpace:'nowrap' , textOverflow:'ellipsis'}}>
+         {props.title}
         </Typography>
       </CardContent>
       <Divider variant="middle" sx={{margin:'10px'}} />
