@@ -19,35 +19,30 @@ export default function CardEL(props) {
   
   return (
     <div>
+
        <Card sx={{ boxShadow:'rgba(0,0,0,0.1) 0px 4px 12px' , borderRadius:4 , marginBottom:4 }}>
       <CardHeader
-        avatar={
-          <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-            R
-          </Avatar>
-        }
-        action={
-          <IconButton aria-label="settings">
-            <MoreVertIcon />
-          </IconButton>
-        }
-        title="Shrimp and Chorizo Paella"
-        subheader="September 14, 2016"
+        avatar={ <Avatar  src={`${props.author.avatar.url}`} sx={{marginLeft:"2px"}}/>    }
+      
+        title={<Typography component="p" variant="p" sx={{ color: 'text.primary'  ,fontSize:"16px"}}>
+
+          {`${props.author.name}`}
+        </Typography>}
+        
+      
       />
       <CardMedia
         component="img"
         height="194"
-        image="/static/images/cards/paella.jpg"
-        alt="Paella dish"
+        image={`${props.coverPhoto.url}`}
+        alt={`${props.slug}`}
       />
       <CardContent>
-        <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-          This impressive paella is a perfect party dish and a fun meal to cook
-          together with your guests. Add 1 cup of frozen peas along with the mussels,
-          if you like.
+        <Typography component="h3" variant="body2" sx={{ color: 'text.secondary' }}>
+         {props.title}
         </Typography>
       </CardContent>
-      <Divider variant="middle" sx={{margin:'10px'}} />
+      <Divider variant="middle" sx={{marginTop:'16px'}} />
       
       <CardActions disableSpacing>
         <IconButton aria-label="add to favorites">
