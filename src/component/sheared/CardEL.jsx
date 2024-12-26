@@ -5,12 +5,8 @@ import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
 import CardActions from '@mui/material/CardActions';
 import Avatar from '@mui/material/Avatar';
-import IconButton from '@mui/material/IconButton';
+import { Button } from '@mui/material';
 import Typography from '@mui/material/Typography';
-import { red } from '@mui/material/colors';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import ShareIcon from '@mui/icons-material/Share';
-import MoreVertIcon from '@mui/icons-material/MoreVert';
 import Divider from '@mui/material/Divider';
 
 
@@ -20,7 +16,7 @@ export default function CardEL(props) {
   return (
     <div>
 
-       <Card sx={{ boxShadow:'rgba(0,0,0,0.1) 0px 4px 12px' , borderRadius:4 , marginBottom:4 }}>
+       <Card sx={{height:"410px" , boxShadow:'rgba(0,0,0,0.1) 0px 4px 12px' , borderRadius:4 , marginBottom:4 }}>
       <CardHeader
         avatar={ <Avatar  src={`${props.author.avatar.url}`} sx={{marginLeft:"2px"}}/>    }
       
@@ -39,18 +35,13 @@ export default function CardEL(props) {
       />
       <CardContent>
         <Typography component="h3" variant="body2" sx={{ color: 'text.secondary' }}>
-         {props.title}
+         {props.title.slice(0,20)}
         </Typography>
       </CardContent>
-      <Divider variant="middle" sx={{marginTop:'16px'}} />
+      <Divider variant="middle" sx={{margin:'10px'}} />
       
       <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites">
-          <FavoriteIcon />
-        </IconButton>
-        <IconButton aria-label="share">
-          <ShareIcon />
-        </IconButton>
+      <Button variant="outlined" sx={{width:"100%"}}>Read Article</Button>
        
       </CardActions>
   
