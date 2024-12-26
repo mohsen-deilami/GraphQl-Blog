@@ -8,6 +8,7 @@ import Avatar from '@mui/material/Avatar';
 import { Button } from '@mui/material';
 import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
+import { Link } from 'react-router-dom';
 
 
 export default function CardEL(props) {
@@ -40,7 +41,9 @@ export default function CardEL(props) {
       <Divider variant="middle" sx={{margin:'10px'}} />
       
       <CardActions disableSpacing>
+        <Link to={`/blogs/${props.slug}`}>
       <Button variant="outlined" sx={{width:"100%"}}>Read Article</Button>
+        </Link>
        
       </CardActions>
   

@@ -12,6 +12,8 @@ export default function Authors() {
   return (
     <div>
       <Container spacing={2} sx={{ boxShadow:'rgba(0,0,0,0.1) 0px 4px 12px' , borderRadius:4 , marginBottom:4 }}>
+      {!!loading && <h3>loading.... </h3>}
+      {!!error && <h3>error.... </h3>} 
       <Grid container spacing={2} padding='10px'>
   {
     data ?
