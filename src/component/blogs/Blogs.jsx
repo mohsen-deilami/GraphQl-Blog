@@ -8,7 +8,7 @@ export default function Blogs() {
   const { loading, data, error } = useQuery(GET_BLOGS_INFO);
   return (
     <>
-    <Container spacing={2}>
+    <Container spacing={2} style={{padding:0}}>
   
 
       {!!loading && <h3>loading.... </h3>}
