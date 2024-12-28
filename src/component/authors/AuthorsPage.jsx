@@ -8,7 +8,7 @@ import Avatar from "@mui/material/Avatar";
 import Typography from "@mui/material/Typography";
 import CardEL from "../sheared/CardEL";
 import sanitizeHtml from 'sanitize-html';
-
+import  Loader from './../../component/sheared/Loader'
 export default function AuthorsPage() {
   const { slug } = useParams();
 
@@ -18,8 +18,8 @@ export default function AuthorsPage() {
 
   return (
     <Container maxWidth="lg">
-      {!!loading && <h3>loading.... </h3>}
-      {!!error && <h3>error.... </h3>}
+      {!!loading &&  <Loader/>}
+      {!!error &&  <Loader/>}
 
       {data ? (
         <Grid container mt={10}>

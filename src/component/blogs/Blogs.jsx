@@ -4,14 +4,15 @@ import { GET_BLOGS_INFO } from "../../graphql/queries";
 import CardEL from "./../sheared/CardEL";
 import { Container } from "@mui/material";
 import Grid from "@mui/material/Grid2";
+import Loader from "../sheared/Loader";
 export default function Blogs() {
   const { loading, data, error } = useQuery(GET_BLOGS_INFO);
 
   return (
     <>
       <Container spacing={2} style={{ padding: 0 }}>
-        {!!loading && <h3>loading.... </h3>}
-        {!!error && <h3>error.... </h3>}
+        {!!loading && <Loader/>}
+        {!!error &&  <Loader/>}
 
         <Grid container spacing={2}>
           {data

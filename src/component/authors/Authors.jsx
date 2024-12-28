@@ -7,6 +7,7 @@ import Avatar from "@mui/material/Avatar";
 import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
 import { Link } from "react-router-dom";
+import Loader from "../sheared/Loader";
 export default function Authors() {
   const { loading, data, error } = useQuery(GET_AUTHORS_INFO);
   return (
@@ -19,8 +20,8 @@ export default function Authors() {
           marginBottom: 4,
         }}
       >
-        {!!loading && <h3>loading.... </h3>}
-        {!!error && <h3>error.... </h3>}
+        {!!loading && <Loader/>}
+        {!!error && <Loader/>}
         <Grid container spacing={2} padding="10px">
           {data
             ? data.authors.map((author , index) => (
