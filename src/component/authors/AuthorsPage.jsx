@@ -18,67 +18,51 @@ export default function AuthorsPage() {
 
 
   return (
-    <Container
-      spacing={2}
-      sx={{
-        boxShadow: "rgba(0,0,0,0.1) 0px 4px 12px",
-        borderRadius: 4,
-        marginBottom: 4,
-      }}
-    >
+    <Container    maxWidth="lg" >
       {!!loading && <h3>loading.... </h3>}
       {!!error && <h3>error.... </h3>}
-      <Grid
-        container
-        spacing={2}
-        sx={{
-          display: "flex",
-          alignItems: "center",
-          gap: "10px",
-          padding: "5px",
-        }}
-      >
+      
         {data ? (
-          
-          
-          <Grid
-            sx={{
-              alignItems: "center",
-
-              padding: "5px",
-            }}
-            size={{ xs: 12 }}
+            <Grid container mt={10}>
+                
+          <Grid   sx={{display:'flex',flexDirection:'column', alignItems: "center"}}
+           size={{ xs: 12 }}
           >
             <Avatar
               src={`${data.author.avatar.url}`}
-              sx={{ marginLeft: "2px" }}
+              sx={{ marginLeft: "2px" , width:'250px' , height:'250px'}}
             />
               
            
             <Typography
               component="h3"
-              variant="body2"
-              sx={{ color: "text.secondary" }}
+              variant="h5"
+              sx={{ color: "text.primary" , m:'16px' , fontWeight:'700'}}
             >
               {data.author.name}
             </Typography>
             <Typography
               component="h3"
-              variant="body2"
-              sx={{ color: "text.primary" }}
+              variant="h5"
+              sx={{ color: "text.secondry" }}
             >
               {data.author.field}
             </Typography>
+
+            </Grid>
+
             <Grid
+          
             
               size={{ xs: 12 }}
             >
               <div dangerouslySetInnerHTML={{__html:data.author.description.html}}></div>
               
             </Grid>
+
           </Grid>
         ) : null}
-      </Grid>
+     
       <Grid container spacing={2}>
           {data
             ? 
