@@ -6,28 +6,23 @@ import { Container } from "@mui/material";
 import Grid from "@mui/material/Grid2";
 export default function Blogs() {
   const { loading, data, error } = useQuery(GET_BLOGS_INFO);
-  console.log(data);
-  
+
   return (
     <>
-    <Container spacing={2} style={{padding:0}}>
-  
+      <Container spacing={2} style={{ padding: 0 }}>
+        {!!loading && <h3>loading.... </h3>}
+        {!!error && <h3>error.... </h3>}
 
-      {!!loading && <h3>loading.... </h3>}
-      {!!error && <h3>error.... </h3>} 
-    
-
-    <Grid container spacing={2}>
-  {
-    data ?
-    data.posts.map(post=>(
-       <Grid  size={{xs:12 , sm:6 , md:4}} key={post.id}>
-      <CardEL {...post} />
-    </Grid> 
-    )):null}
-    </Grid>
-    
-    </Container>
+        <Grid container spacing={2}>
+          {data
+            ? data.posts.map((post) => (
+                <Grid size={{ xs: 12, sm: 6, md: 4 }} key={post.id}>
+                  <CardEL {...post} />
+                </Grid>
+              ))
+            : null}
+        </Grid>
+      </Container>
     </>
   );
 }
