@@ -14,7 +14,7 @@ function App() {
           <Route path="/" element={<Navigate to="/homepage" replace />} />
           <Route path="/homepage" element={<Home />} />
           <Route path="/blogs/:slug" element={<BlogsPage/>}/>
-          <Route path="authors/:slug" element={<AuthorsPage/>}/>
+          <Route path="/authors/:slug" element={<AuthorsPage/>}/>
        
         </Routes>
       </Layout>

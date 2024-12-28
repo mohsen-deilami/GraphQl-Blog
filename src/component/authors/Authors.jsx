@@ -6,10 +6,9 @@ import Grid from "@mui/material/Grid2";
 import Avatar from "@mui/material/Avatar";
 import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
+import { Link } from "react-router-dom";
 export default function Authors() {
   const { loading, data, error } = useQuery(GET_AUTHORS_INFO);
-  console.log(data);
-
   return (
     <div>
       <Container
@@ -24,8 +23,9 @@ export default function Authors() {
         {!!error && <h3>error.... </h3>}
         <Grid container spacing={2} padding="10px">
           {data
-            ? data.authors.map((author) => (
-                <React.Fragment key={author.id}>
+            ? data.authors.map((author , index) => (
+                <Link to={`/authors/${author.slug}`}key={author.id}>
+                  {console.log(author)}
                   <Grid
                     style={{
                       display: "flex",
@@ -47,10 +47,11 @@ export default function Authors() {
                       {author.name}
                     </Typography>
                   </Grid>
-                  <Grid size={{ xs: 12 }}>
-                    <Divider />
-                  </Grid>
-                </React.Fragment>
+                  {index !== author.length && ( <Grid size={{ xs: 12 }}>
+                    <Divider variant="middle"/>
+                  </Grid>)}
+                 
+                </Link>
               ))
             : null}
         </Grid>

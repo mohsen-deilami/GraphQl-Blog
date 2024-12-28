@@ -6,6 +6,8 @@ import { Container } from "@mui/material";
 import Grid from "@mui/material/Grid2";
 export default function Blogs() {
   const { loading, data, error } = useQuery(GET_BLOGS_INFO);
+  console.log(data);
+  
   return (
     <>
     <Container spacing={2} style={{padding:0}}>

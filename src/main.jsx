@@ -4,7 +4,8 @@ import App from "./App.jsx";
 import { BrowserRouter } from "react-router-dom";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 const client = new ApolloClient({
-  uri: "https://us-west-2.cdn.hygraph.com/content/cm50cdtba06o007vysb8f6n62/master",
+ // uri: "https://us-west-2.cdn.hygraph.com/content/cm50cdtba06o007vysb8f6n62/master",
+  uri: "https://ap-south-1.cdn.hygraph.com/content/cm57jbz9403z007weri7eesbu/master",
   cache: new InMemoryCache(),
 });
 createRoot(document.getElementById("root")).render(
