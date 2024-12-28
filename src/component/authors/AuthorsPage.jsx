@@ -27,23 +27,55 @@ export default function AuthorsPage() {
     >
       {!!loading && <h3>loading.... </h3>}
       {!!error && <h3>error.... </h3>}
-    
+      <Grid
+        container
+        spacing={2}
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          gap: "10px",
+          padding: "5px",
+        }}
+      >
         {data ? (
-          <>
-          <Grid   sx={{  alignItems: "center", padding: "5px",  }} size={{ xs: 12 }}  >
-            <Avatar   src={`${data.author.avatar.url}`}   sx={{ marginLeft: "2px" }}  />
-            </Grid>
+          <Grid
+            sx={{
+              alignItems: "center",
 
-            <Grid>
-            <Typography   component="h3"    variant="body2"  sx={{ color: "text.secondary" }} >
+              padding: "5px",
+            }}
+            size={{ xs: 12 }}
+          >
+            <Avatar
+              src={`${data.author.avatar.url}`}
+              sx={{ marginLeft: "2px" }}
+            />
+              
+           
+            <Typography
+              component="h3"
+              variant="body2"
+              sx={{ color: "text.secondary" }}
+            >
               {data.author.name}
             </Typography>
+            <Typography
+              component="h3"
+              variant="body2"
+              sx={{ color: "text.primary" }}
+            >
+              {data.author.field}
+            </Typography>
+            <Grid
+            
+              size={{ xs: 12 }}
+            >
+              <div dangerouslySetInnerHTML={{__html:data.author.description.html}}></div>
+              
+            </Grid>
           </Grid>
-          
-        </>
-        ) 
-        : null}
-   
+        ) : null}
+      </Grid>
     </Container>
   );
 }
