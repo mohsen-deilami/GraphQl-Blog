@@ -7,6 +7,7 @@ import Grid from "@mui/material/Grid2";
 import Avatar from "@mui/material/Avatar";
 import Typography from "@mui/material/Typography";
 import CardEL from "../sheared/CardEL";
+import sanitizeHtml from 'sanitize-html';
 
 export default function AuthorsPage() {
   const { slug } = useParams();
@@ -15,29 +16,30 @@ export default function AuthorsPage() {
     variables: { slug },
   });
 
-
-
   return (
-    <Container    maxWidth="lg" >
+    <Container maxWidth="lg">
       {!!loading && <h3>loading.... </h3>}
       {!!error && <h3>error.... </h3>}
-      
-        {data ? (
-            <Grid container mt={10}>
-                
-          <Grid   sx={{display:'flex',flexDirection:'column', alignItems: "center"}}
-           size={{ xs: 12 }}
+
+      {data ? (
+        <Grid container mt={10}>
+          <Grid
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
+            size={{ xs: 12 }}
           >
             <Avatar
               src={`${data.author.avatar.url}`}
-              sx={{ marginLeft: "2px" , width:'250px' , height:'250px'}}
+              sx={{ marginLeft: "2px", width: "250px", height: "250px" }}
             />
-              
-           
+
             <Typography
               component="h3"
               variant="h5"
-              sx={{ color: "text.primary" , m:'16px' , fontWeight:'700'}}
+              sx={{ color: "text.primary", m:"16px", fontWeight: "700" }}
             >
               {data.author.name}
             </Typography>
@@ -48,34 +50,29 @@ export default function AuthorsPage() {
             >
               {data.author.field}
             </Typography>
-
-            </Grid>
-
-            <Grid
-          
-            
-              size={{ xs: 12 }}
-            >
-              <div dangerouslySetInnerHTML={{__html:data.author.description.html}}></div>
-              
-            </Grid>
-
           </Grid>
-        ) : null}
-     
-      <Grid container spacing={2}>
-          {data
-            ? 
-  
-            data.author.post.map((post) => (
-              
-              
-                 <Grid size={{ xs: 12, sm: 6, md: 4 }} key={post.id}>
-                  <CardEL title={post.title} slug={post.slug} coverPhoto={post.coverPhoto} />
-                </Grid> 
-             )) 
-            : null}
+
+          <Grid size={{ xs: 12 }}mt={10} >
+            <div
+              dangerouslySetInnerHTML={{ __html:sanitizeHtml( data.author.description.html) }}
+            ></div>
+          </Grid>
         </Grid>
+      ) : null}
+
+      <Grid container spacing={2} mt={10}>
+        {data
+          ? data.author.post.map((post) => (
+              <Grid size={{ xs: 12, sm: 6, md: 4 }} key={post.id}>
+                <CardEL
+                  title={post.title}
+                  slug={post.slug}
+                  coverPhoto={post.coverPhoto}
+                />
+              </Grid>
+            ))
+          : null}
+      </Grid>
     </Container>
   );
 }
