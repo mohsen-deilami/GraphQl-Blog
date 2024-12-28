@@ -43,15 +43,19 @@ const GET_AUTHOR_INFO = gql`
       description {
         html
       }
-    }
-    posts {
+    
+    post {
       coverPhoto {
         url
       }
+      author {
+      name
+    }
       id
       slug
       title
     }
+  }
   }
 `;
 export { GET_BLOGS_INFO, GET_AUTHORS_INFO, GET_AUTHOR_INFO };

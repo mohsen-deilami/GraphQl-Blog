@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { GET_AUTHOR_INFO } from "../../graphql/queries";
@@ -6,7 +6,8 @@ import { Container } from "@mui/material";
 import Grid from "@mui/material/Grid2";
 import Avatar from "@mui/material/Avatar";
 import Typography from "@mui/material/Typography";
-import Divider from "@mui/material/Divider";
+import CardEL from "../sheared/CardEL";
+
 export default function AuthorsPage() {
   const { slug } = useParams();
 
@@ -14,7 +15,7 @@ export default function AuthorsPage() {
     variables: { slug },
   });
 
-  console.log(data);
+
 
   return (
     <Container
@@ -38,6 +39,8 @@ export default function AuthorsPage() {
         }}
       >
         {data ? (
+          
+          
           <Grid
             sx={{
               alignItems: "center",
@@ -76,6 +79,19 @@ export default function AuthorsPage() {
           </Grid>
         ) : null}
       </Grid>
+      <Grid container spacing={2}>
+          {data
+            ? 
+  
+            data.author.post.map((post) => (
+              
+              
+                 <Grid size={{ xs: 12, sm: 6, md: 4 }} key={post.id}>
+                  <CardEL title={post.title} slug={post.slug} coverPhoto={post.coverPhoto} />
+                </Grid> 
+             )) 
+            : null}
+        </Grid>
     </Container>
   );
 }
