@@ -12,12 +12,11 @@ import { Link } from 'react-router-dom';
 
 
 export default function CardEL({title , slug , coverPhoto , author}  ) {
-  console.log(title , slug , coverPhoto , author);
   
   return (
     <div>
 
-       <Card sx={{height:"410px" , boxShadow:'rgba(0,0,0,0.1) 0px 4px 12px' , borderRadius:4 , marginBottom:4 }}>
+       <Card sx={{maxHeight:"410px" , boxShadow:'rgba(0,0,0,0.1) 0px 4px 12px' , borderRadius:4 , marginBottom:4 }}>
         {author && (
 
           <CardHeader
