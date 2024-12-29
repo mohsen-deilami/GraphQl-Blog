@@ -20,7 +20,7 @@ export default function BlogsPage() {
     {!!error &&  <Loader/>}
 
     {data ? (
-      <Grid container mt={10}>
+      <Grid container mt={5} mb={5}>
       
           <Grid>  
             <Typography
@@ -33,24 +33,22 @@ export default function BlogsPage() {
           </Grid>
       
 
-        <Grid
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-          }}
-          size={{ xs: 12 }}
+        <Grid  sx={{ mt:'10px' }}
+             size={{ xs: 12 }}
         >
-          <Avatar
+          <img
             src={`${data.post.coverPhoto.url}`}
-           
+           style={{width:'100%' }}
           />
 
 </Grid>
-        <Grid container>
+        <Grid container mt={10} >
+          <Grid sx={{display:'flex' , alignItems:'center' , justifyContent:'center'}}>
+
+         
         <Avatar
               src={`${data.post.author.avatar.url}`}
-              sx={{ marginLeft: "2px", width: "250px", height: "250px" }}
+              sx={{ marginRight: "20px", width: "200px", height: "200px" }}
             />
             <Grid>
             <Typography
@@ -68,15 +66,10 @@ export default function BlogsPage() {
               {data.post.author.field}
             </Typography>
             </Grid>
+            </Grid>
         </Grid>
 
-          <Typography
-            component="h3"
-            variant="h5"
-            sx={{ color: "text.secondry" }}
-          >
-            {data.post.title}
-          </Typography>
+        
 
         <Grid size={{ xs: 12 }}mt={10} >
           <div
