@@ -10,6 +10,7 @@ import Loader from "./../../component/sheared/Loader";
 import sanitizeHtml from "sanitize-html";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import CommentForm from "../comment/CommentForm";
+import Comments from "../comment/Comments";
 export default function BlogsPage() {
   const navigate = useNavigate();
   const { slug } = useParams();
@@ -89,8 +90,11 @@ export default function BlogsPage() {
           </Grid>
         </Grid>
       ) : null}
-      <Grid size={{sx:12}}>
-        <CommentForm slug={slug}/>
+      <Grid size={{ sx: 12 }}>
+        <CommentForm />
+      </Grid>
+      <Grid size={{ xs: 12 }}>
+        <Comments slug={slug} />
       </Grid>
     </Container>
   );
