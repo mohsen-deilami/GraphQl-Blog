@@ -84,6 +84,7 @@ const GET_POST_Comments = gql`
 query getPostsComments($slug:String!) {
   comments(where:{post:{slug:$slug}})
     {
+      id
     name
     text
 }
