@@ -7,7 +7,6 @@ import Avatar from "@mui/material/Avatar";
 import Typography from "@mui/material/Typography";
 import Loader from "./../../component/sheared/Loader";
 import Box from '@mui/material/Box';
-import { Padding } from '@mui/icons-material';
 
 export default function Comments({slug}) {
       
@@ -16,7 +15,7 @@ export default function Comments({slug}) {
            variables:{slug}
        }
        )
-       console.log(data);
+
        
   return (
      <Container maxWidth="lg" sx={{boxShadow:"rgba(0,0,0,0.1) 0px 4px 12px" , borderRadius:4 , py:1 , mt:5}}>

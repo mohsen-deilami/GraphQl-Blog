@@ -17,7 +17,7 @@ export default function BlogsPage() {
   const { loading, data, error } = useQuery(GET_POST_INFO, {
     variables: { slug },
   });
-  console.log(data);
+
   return (
     <Container maxWidth="lg" style={{ padding: "0" }}>
       {!!loading && <Loader />}
