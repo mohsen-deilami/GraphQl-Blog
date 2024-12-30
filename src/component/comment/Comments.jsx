@@ -25,13 +25,12 @@ export default function Comments({ slug }) {
     >
       {!!loading && <Loader />}
       {!!error && <Loader />}
-      <Grid size={{ xs: 12, m: 2 }}>
+        {data &&(<Grid size={{ xs: 12, m: 2 }}>
         <Typography component="p" variant="h6" fontWeight={700}>
           Comments
         </Typography>
 
-        {data
-          ? data.comments.map((comment) => (
+          { data.comments.map((comment) => (
               <Grid
                 size={{ xs: 12 }}
                 style={{
@@ -40,17 +39,17 @@ export default function Comments({ slug }) {
                   borderRadius: "8px",
                 }}
                 key={comment.id}
-              >
+                >
                 <Box
                   component="div"
                   style={{
-                    display: "flex",
-                    alignItems: "center",
-                    marginTop: "10px",
-                    marginBottom: "5px",
-                    padding: "8px",
-                  }}
-                >
+                      display: "flex",
+                      alignItems: "center",
+                      marginTop: "10px",
+                      marginBottom: "5px",
+                      padding: "8px",
+                    }}
+                    >
                   <Avatar style={{ marginRight: "10px" }}>
                     {comment.name[0]}
                   </Avatar>
@@ -62,13 +61,18 @@ export default function Comments({ slug }) {
                   component="p"
                   variant="span"
                   style={{ padding: "10px 16px" }}
-                >
+                  >
                   {comment.text}
                 </Typography>
               </Grid>
             ))
-          : null}
+        }
       </Grid>
+      )
+       
+      
+          }
     </Container>
+                    
   );
 }

@@ -6,20 +6,26 @@ import { TextField } from "@mui/material";
 import Button from "@mui/material/Button";
 import { useMutation } from "@apollo/client";
 import { toast, ToastContainer } from "react-toastify";
-export default function CommentForm({slug}) {
-  console.log(slug);
+export default function CommentForm({ slug }) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [text, setText] = useState("");
   const [sendComment, { loading, data, error }] = useMutation(SEND_COMMENT, {
     variables: { name, email, text, slug },
   });
-  console.log(data);
+
   const clickHandler = () => {
     if (name && email && text) {
-      console.log('name && email && text:=>',name , email , text ,slug);
-      
       sendComment();
+
+      if (!loading) {
+        toast.success("Your Comment was sent successfully.", {
+          position: "top-center",
+        });
+        setName("");
+        setEmail("");
+        setText("");
+      }
     } else {
       toast.warn("Fill in all fields", { position: "top-center" });
     }
