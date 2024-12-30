@@ -26,7 +26,6 @@ export default function Authors() {
           {data
             ? data.authors.map((author , index) => (
                 <Link to={`/authors/${author.slug}`}key={author.id}>
-                  {console.log(author)}
                   <Grid
                     style={{
                       display: "flex",
