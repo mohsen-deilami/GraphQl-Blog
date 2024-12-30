@@ -2,22 +2,19 @@ import { gql } from "@apollo/client";
 
 const SEND_COMMENT = gql`
   mutation sendComment(
-    $name: String!
-    $email: String!
-    $text: String!
-    $slug: String!
+    $name: String! ,
+    $email: String! ,
+    $text: String! , 
+    $slug: String! ,
   ) {
     createComment(
-      data: {
-        name: $name
-        email: $email
-        text: $text
-        post: { connect: { slug: $slug } }
-      }
-    ) {
+      data: {name:  $name, email: $email, text:    $text, 
+        post: {connect: {slug:  $slug}}}
+    ){
       id
     }
   }
 `;
 
-export default SEND_COMMENT;
+
+export  {SEND_COMMENT};
