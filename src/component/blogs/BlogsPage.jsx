@@ -11,7 +11,7 @@ import sanitizeHtml from "sanitize-html";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import CommentForm from "../comment/CommentForm";
 import Comments from "../comment/Comments";
-
+import Button from "@mui/material/Button";
 export default function BlogsPage() {
   const navigate = useNavigate();
   const { slug } = useParams();
@@ -42,7 +42,10 @@ export default function BlogsPage() {
             >
               {data.post.title}
             </Typography>
-            <ArrowForwardIcon onClick={() => navigate(-1)} />
+            <Button style={{backgroundColor:'inherit'}}>
+
+            <ArrowForwardIcon  onClick={() => navigate(-1)} />
+            </Button>
           </Grid>
 
           <Grid sx={{ mt: "10px" }} size={{ xs: 12 }}>
