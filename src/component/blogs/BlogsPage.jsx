@@ -11,6 +11,7 @@ import sanitizeHtml from "sanitize-html";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import CommentForm from "../comment/CommentForm";
 import Comments from "../comment/Comments";
+
 export default function BlogsPage() {
   const navigate = useNavigate();
   const { slug } = useParams();
@@ -91,7 +92,7 @@ export default function BlogsPage() {
         </Grid>
       ) : null}
       <Grid size={{ sx: 12 }}>
-        <CommentForm />
+        <CommentForm slug={slug}/>
       </Grid>
       <Grid size={{ xs: 12 }}>
         <Comments slug={slug} />
