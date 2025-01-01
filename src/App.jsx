@@ -1,4 +1,3 @@
-import "./App.css";
 import BlogsPage from "./component/blogs/BlogsPage";
 import Home from "./component/home/Home";
 import Layout from "./component/layout/Layout";

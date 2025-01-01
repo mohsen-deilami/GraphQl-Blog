@@ -15,8 +15,8 @@ export default function Blogs() {
         {!!error &&  <Loader/>}
 
         <Grid container spacing={2}>
-          {data
-            ? data.posts.map((post) => (
+          {data?
+          data.posts.map((post) => (
                 <Grid size={{ xs: 12, sm: 6, md: 4 }} key={post.id}>
                   <CardEL {...post} />
                 </Grid>
