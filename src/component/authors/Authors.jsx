@@ -47,7 +47,8 @@ export default function Authors() {
                       {author.name}
                     </Typography>
                   </Grid>
-                  {index !== author.length && ( <Grid size={{ xs: 12 }}>
+                  {index !== data.authors.length-1 && ( 
+                    <Grid size={{ xs: 12 }}>
                     <Divider variant="middle"/>
                   </Grid>)}
                  
